@@ -1,0 +1,125 @@
+<div class="content">
+    <div class="row">
+      <div class="col">
+        <button (click)="abrirDialogoAgregarInsumo()" class="btn btn-success mt-4" type="button" style="background-image: linear-gradient(to left, #0fb268, 7.2%, #1c503e, #1c3c33);">
+          Agregar
+        </button>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="buscar" class="col-sm-2 col-form-label">Buscar:</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" matInput (keyup)="applyFilter(input.value)" placeholder="Ex. Insumo" #input />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group row">
+          <label for="estatus" class="col-sm-4 col-form-label">Estatus:</label>
+          <div class="col-sm-12">
+            <select class="form-control" (change)="filtrarPorEstatus($event)">
+              <option value="todos">Todos</option>
+              <option value="activos">Activos</option>
+              <option value="inactivos">Inactivos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <br />
+  
+    <div class="card mb-3">
+      <div class="card-header" style="background-color: #D4BA72; font-weight: bold;">
+        Insumos
+      </div>
+      <div class="card-body table-responsive">
+        <div *ngIf="dataSource.data.length === 0 && !showNoDataRow" class="loading-indicator">
+          <mat-spinner diameter="70"></mat-spinner>
+        </div>
+  
+        <table mat-table [dataSource]="dataSource" matSort class="table" *ngIf="dataSource.data.length > 0">
+          <ng-container matColumnDef="nombreInsumo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Nombre Insumo
+            </th>
+            <td mat-cell *matCellDef="let row"> {{ row.nombreInsumo }} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="nombreProveedor">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Proveedor
+            </th>
+            <td mat-cell *matCellDef="let row"> {{ row.nombreProveedor }} </td>
+          </ng-container>
+  
+          <!-- Agregar las siguientes columnas de acuerdo a tus datos -->
+          <ng-container matColumnDef="cantidad">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Cantidad
+            </th>
+            <td mat-cell *matCellDef="let row"> {{ row.cantidad }} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="unidad">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Unidad
+            </th>
+            <td mat-cell *matCellDef="let row"> {{ row.unidad }} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="precio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Precio
+            </th>
+            <td mat-cell *matCellDef="let row"> {{ row.precio | currency }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="estatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Estatus
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <span style="font-weight: bold;" [style.color]="row.estatus === '1' ? 'green' : 'red'">
+                {{ row.estatus === '1' ? 'Activo' : 'Inactivo' }}
+              </span>
+            </td>
+          </ng-container>
+  
+  
+          <!-- ... Agregar más columnas si es necesario ... -->
+  
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>
+              <span class="actions-header">Acciones</span>
+            </th>
+            <td mat-cell *matCellDef="let row" class="actions-cell">
+              <!-- Mostrar botón de reactivar solo para insumos inactivos -->
+              <button mat-mini-fab color="primary" *ngIf="row.estatus === '0'" (click)="reactivarInsumo(row.idinsumo)" style="background-color: #D4BA72;">
+                <mat-icon>restore</mat-icon>
+              </button>
+              <!-- Mostrar botones de editar y eliminar solo para insumos activos -->
+              <button mat-mini-fab color="primary" *ngIf="row.estatus === '1'" style="background-color: #D4BA72;" (click)="abrirDialogoEditarInsumo(row.idinsumo)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" *ngIf="row.estatus === '1'" class="mx-2" (click)="eliminarInsumo(row.idinsumo)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="8" *ngIf="showNoDataRow">
+              No se encontraron datos con "{{ input.value }}"
+            </td>
+          </tr>
+        </table>
+  
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of items"></mat-paginator>
+      </div>
+    </div>
+  </div>
+  

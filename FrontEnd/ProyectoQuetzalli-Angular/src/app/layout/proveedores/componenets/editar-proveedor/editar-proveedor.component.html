@@ -1,0 +1,41 @@
+<div class="container">
+    <form (submit)="guardarCambios()">
+      <div class="form-header">
+        <div class="title">
+          <h1>Editar proveedor</h1>
+        </div>
+      </div>
+  
+      <div class="input-group">
+        <div class="input-box">
+          <label for="nombreEmpresa"><i class="fas fa-building"></i> Nombre de la Empresa</label>
+          <input id="nombreEmpresa" type="text" name="nombreEmpresa" [(ngModel)]="proveedor.nombreEmpresa" placeholder="Ingrese el nombre de la empresa" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="nombreContacto"><i class="fas fa-user"></i> Nombre de Contacto</label>
+          <input id="nombreContacto" type="text" name="nombreContacto" [(ngModel)]="proveedor.nombreContacto" placeholder="Ingrese el nombre de contacto" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="correo"><i class="fas fa-envelope"></i> Correo</label>
+          <input id="correo" type="email" name="correo" [(ngModel)]="proveedor.correo" placeholder="Ingrese un correo" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
+          <input id="telefono" type="tel" name="telefono" [(ngModel)]="proveedor.telefono" placeholder="(xx) xxxx-xxxx" required pattern="[0-9]+">
+        </div>
+      </div>
+  
+      <div class="continue-button d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary mx-3" (click)="cancelar()">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-custom" [disabled]="!formularioValido()">
+          Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+  

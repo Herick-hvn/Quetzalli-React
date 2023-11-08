@@ -1,0 +1,51 @@
+<div class="container">
+  <form (submit)="guardarCambios()">
+    <div class="form-header">
+      <div class="title">
+        <h1>Editar Insumo</h1>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="input-box">
+        <label for="nombreInsumo"><i class="fas fa-cube"></i> Nombre del Insumo</label>
+        <input id="nombreInsumo" type="text" name="nombreInsumo" [(ngModel)]="insumo.nombreInsumo" placeholder="Ingrese el nombre del insumo" required>
+      </div>
+
+      <div class="input-box">
+        <label for="proveedor"><i class="fas fa-users"></i> Proveedor</label>
+        <select id="proveedor" class="form-control" [(ngModel)]="insumo.idProveedor" name="proveedor" required>
+          <option *ngFor="let proveedor of proveedores" [value]="proveedor.idproveedor">{{ proveedor.nombreEmpresa }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="input-box">
+        <label for="cantidad"><i class="fas fa-sort-amount-up"></i> Cantidad</label>
+        <input id="cantidad" type="number" name="cantidad" [(ngModel)]="insumo.cantidad" placeholder="Ingrese la cantidad" required>
+      </div>
+
+      <div class="input-box">
+        <label for="unidad"><i class="fas fa-balance-scale"></i> Unidad</label>
+        <input id="unidad" type="text" name="unidad" [(ngModel)]="insumo.unidad" placeholder="Ingrese la unidad" required>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="input-box">
+        <label for="precio"><i class="fas fa-dollar-sign"></i> Precio</label>
+        <input id="precio" type="number" name="precio" [(ngModel)]="insumo.precio" placeholder="Ingrese el precio" required>
+      </div>
+    </div>
+
+    <div class="continue-button d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary mx-3" (click)="cancelar()">
+        Cancelar
+      </button>
+      <button type="submit" class="btn btn-custom" [disabled]="!formularioValido()">
+        Guardar Cambios
+      </button>
+    </div>
+  </form>
+</div>

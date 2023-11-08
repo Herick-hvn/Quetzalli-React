@@ -1,0 +1,44 @@
+<div class="sidenav mt-5 " [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" 
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true} "
+               (click)="toggleCollapse()"
+            >
+                <!-- Icono para expandir cuando está colapsado -->
+                <i class="sidenav-link-icon fas fa-angle-double-right" 
+                   *ngIf="collapsed"
+                   @rotate
+                ></i>
+        
+                <!-- Icono para contraer cuando no está colapsado -->
+                <i class="sidenav-link-icon fas fa-angle-double-left" 
+                   *ngIf="!collapsed"
+                   (click)="closeSidenav()"
+                   @rotate
+                
+                ></i>
+                
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                    Contraer 
+                </span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" 
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                    {{data.label}}
+                </span>
+            </a>
+        </li>
+
+    </ul>
+</div>

@@ -1,0 +1,126 @@
+.container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.212);
+    padding: 2rem; /* Ajusta el espaciado interno del contenedor */
+  }
+  
+  .form {
+    width: 80%;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+  }
+  
+  .form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .title {
+    position: relative;
+  }
+  
+  .title h1::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 0.3rem;
+    background-color: #D4BA72;
+    margin: 0.5rem auto;
+    border-radius: 10px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 48%;
+  }
+  
+  .input-box label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000000c0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input-box input,
+  .input-box select {
+    margin: 0.3rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    box-shadow: 1px 1px 6px #0000001c;
+  }
+  
+  .input-box input:hover,
+  .input-box select:hover {
+    background-color: #eeeeee75;
+  }
+  
+  .input-box input:focus-visible,
+  .input-box select:focus-visible {
+    outline: 1px solid #D4BA72;
+  }
+  
+  .continue-button button {
+    width: 47%;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #fff;
+    
+  }
+  
+  .continue-button button:hover {
+    background-color: black;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .input-box {
+      width: 100%;
+    }
+  }
+  
+  .cancel-button {
+    background-color: #ddd;
+    color: #333;
+    margin-left: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    background-color: #ccc;
+  }
+
+  .btn-custom {
+    background: #185a47;
+    color: white; /* Cambia el color del texto para que sea legible en el fondo */
+    /* Agrega otros estilos si es necesario */
+  }
+  
+  .btn-custom:hover {
+    background-color: black;
+    /* Puedes ajustar el color de texto para que sea legible en el nuevo fondo */
+    color: white;
+  }
+  

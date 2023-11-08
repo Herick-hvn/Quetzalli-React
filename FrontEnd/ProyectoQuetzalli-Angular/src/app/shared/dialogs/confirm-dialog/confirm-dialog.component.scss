@@ -1,0 +1,31 @@
+.custom-dialog-content {
+    padding: 24px;
+  }
+  
+  .custom-dialog-button-container {
+    justify-content: flex-end;
+    padding: 16px 24px;
+    background-color: #f7f7f7;
+  }
+  
+  .custom-button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .custom-cancel-button {
+    margin-right: 8px;
+    background-color: #e0e0e0;
+  }
+  
+  .custom-confirm-button {
+    background: linear-gradient(to left, #0fb268, 7.2%, #1c503e, #1c3c33);
+    color: white;
+  }
+  
+  .custom-confirm-button:hover {
+    background: linear-gradient(to left, #0fb268, 7.2%, #1c503e, #1c3c33);
+  }
+  

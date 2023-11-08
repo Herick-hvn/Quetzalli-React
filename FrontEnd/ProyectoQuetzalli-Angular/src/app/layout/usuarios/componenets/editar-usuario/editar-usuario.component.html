@@ -1,0 +1,56 @@
+<div class="container">
+    <form (submit)="guardarCambios()">
+      <div class="form-header">
+        <div class="title">
+          <h1>Editar cuenta</h1>
+        </div>
+      </div>
+  
+      <div class="input-group">
+        <div class="input-box">
+          <label for="firstname"><i class="fas fa-user"></i> Nombre</label>
+          <input id="firstname" type="text" name="firstname" [(ngModel)]="persona.nombre" placeholder="Ingrese el primer nombre" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="lastname"><i class="fas fa-user"></i> Apellido Paterno</label>
+          <input id="lastname" type="text" name="lastname" [(ngModel)]="persona.apellidoP" placeholder="Ingrese apellido paterno" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="email"><i class="fas fa-user "></i> Apellido Materno</label>
+          <input id="email" type="email" name="email" [(ngModel)]="persona.apellidoM" placeholder="Ingrese apellido materno" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="correo"><i class="fas fa-envelope"></i> Correo</label>
+          <input id="correo" type="email" name="correo" [(ngModel)]="usuario.email" placeholder="Ingrese un correo" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="rol"><i class="fas fa-users"></i> Rol</label>
+          <select class="form-control" id="rol" name="rol" [(ngModel)]="usuario.rol" required>
+            <option value="" selected disabled>Seleccione un rol</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Empleado">Empleado</option>
+          </select>
+        </div>
+  
+        <div class="input-box">
+          <label for="number"><i class="fas fa-phone"></i> Teléfono</label>
+          <input id="number" type="tel" name="number" [(ngModel)]="persona.telefono" placeholder="(xx) xxxx-xxxx" required pattern="[0-9]+">
+        </div>
+      </div>
+  
+      <div class="continue-button d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary mx-3" (click)="cancelar()">
+           Cancelar
+        </button>
+        <button type="submit" class="btn btn-custom" [disabled]="!formularioValido()">
+         Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+  

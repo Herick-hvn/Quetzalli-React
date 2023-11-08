@@ -1,0 +1,234 @@
+
+
+<section>
+  <header>
+    <a href="#"><img src="./assets/imagenes/LandingPage/logoSF.png" class="logo" /></a>
+    <ul>
+      <li><a routerLink="LandingPageComponent">Home</a></li>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Acerca de nosotros</a></li>
+      <li><a href="#">Contacto</a></li>
+      <li><a (click)="navigateToLogin()">Iniciar sesión</a></li>
+
+      
+      
+    </ul>
+  </header>
+  <div class="circle"></div>
+  <div class="content">
+    <div class="textbox">
+      <h2>Calidad y estilo<br /> <span>Quetzalli</span></h2>
+
+      <a href="#">Más información</a>
+    </div>
+    <div class="imagebox">
+      <img src="./assets/imagenes/LandingPage/pulsera03.png" class="quetzalli" />
+    </div>
+  </div>
+  <ul class="thumb">
+    <li>
+      <img src="./assets/imagenes/LandingPage/pulsera03.png"
+        (click)="imgslider('./assets/imagenes/LandingPage/pulsera03.png'); changeBackgroundColor('#017143')" />
+    </li>
+    <li>
+      <img src="./assets/imagenes/LandingPage/pulsera04.png"
+        (click)="imgslider('./assets/imagenes/LandingPage/pulsera04.png'); changeBackgroundColor('#eb7495')" />
+    </li>
+    <li>
+      <img src="./assets/imagenes/LandingPage/pulsera05.png"
+        (click)="imgslider('./assets/imagenes/LandingPage/pulsera05.png'); changeBackgroundColor('#7F7A93')" />
+    </li>
+  </ul>
+
+  <ul class="social">
+    <li>
+      <a href="#"><img src="./assets/imagenes/LandingPage/facebook.png" alt="" /></a>
+    </li>
+    <li>
+      <a href="#"><img src="./assets/imagenes/LandingPage/instagram.png" alt="" /></a>
+    </li>
+    <li>
+      <a href="#"><img src="./assets/imagenes/LandingPage/twitter.png" alt="" /></a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <div class="content" style="margin-top: 15px;">
+    <div class="row justify-content-center">
+      <div class="card" style="width: 17rem; margin: 0 10px; margin-top: 15px;" *ngFor="let productos of listaProductos">
+        <img src="{{ productos.foto }}" class="card-img-top" alt="{{ productos.nombreProducto }}" [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
+        <div class="card-body">
+          <h5 class="card-title">{{ productos.nombreProducto }}</h5>
+          <p class="card-text">{{ productos.descripcion }}</p>
+          <p class="card-text" style="font-size: larger; font-style: oblique; border-radius: 0px;">${{ productos.precioVenta }}.00 MX</p>
+        </div>
+        <div class="content">
+          <button type="submit" class="btn btn-success" style="width: 17rem;" [routerLink]="['/CrearCuenta']">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="aboutp">
+   <div id="about" class="about d-flex align-items-center">
+     <div class="col-md-2" style="margin-left: 150px;">
+       <img src="./assets/img/logo.jpeg" alt="" style="width: 400px;" />
+     </div>
+     <div class="container">
+       <div class="row justify-content-end">
+         <div class="col-md-6" style="margin-right: 70px;">
+           <div class="titlepage">
+             <h2 style="font-size: 20px;">Misión</h2>
+             <p style="color: black; text-align: justify; font-size: 14px;">
+               Nuestra misión en Quetzalli es embellecer la vida de las personas a través de joyas artesanales únicas y
+               significativas. Buscamos crear piezas que conecten con las emociones y reflejen la individualidad de
+               cada cliente, convirtiendo momentos en recuerdos preciosos.
+             </p>
+           </div>
+         </div>
+         <div class="col-md-6" style="margin-right: 70px;">
+           <div class="titlepage">
+             <h2 style="font-size: 20px;">Visión</h2>
+             <p style="color: black; text-align: justify; font-size: 14px;">
+               Nuestra visión en Quetzalli es ser reconocidos como líderes en la creación y comercialización de joyería
+               artesanal. Aspiramos a expandir nuestra presencia globalmente, inspirando a las personas a expresar su
+               estilo
+             </p>
+           </div>
+         </div>
+         <div class="col-md-6" style="margin-right: 70px;">
+           <div class="titlepage">
+             <h2 style="font-size: 20px;">Valores</h2>
+             <p style="color: black; text-align: justify; font-size: 14px;">
+               Creatividad: Abrazamos la innovación y la creatividad en cada diseño y proceso artesanal
+               Calidad: Compromiso con la excelencia en cada detalle
+               Integridad: Actuamos con honestidad, transparencia y ética en todas nuestras operaciones.
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ 
+
+
+
+<section class="aboutp">
+
+     <!--  contact -->
+     <div  class="contact">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12 no_ld">
+               <div class="titlepage text_align_right">
+                  <h2>Contact Us</h2>
+               </div>
+            </div>
+            <div class="col-md-5 ">
+               <div class="contact_img">
+                  <figure><img src="./assets/imagenes/LandingPage/Contacto.png" alt="#"/></figure>
+               </div>
+            </div>
+            <div class=" col-md-6 offset-md-1 mx-4">
+               <form id="request" class="main_form" >
+                  <div class="row mx-5" >
+                     <div class="col-md-12 no_mo">
+                        <div class="titlepage text_align_right">
+                           <h2>Contactanos</h2>
+                        </div>
+                     </div>
+                     <div class="col-md-12 ">
+                        <input class="contactus" placeholder="Nombre" type="type" name="Your Name"> 
+                     </div>
+                     <div class="col-md-6">
+                        <input class="contactus" placeholder="Telefono" type="type" name="Phone number">                          
+                     </div>
+                     <div class="col-md-6">
+                        <input class="contactus" placeholder="Correo" type="type" name="Email"> 
+                     </div>
+                     <div class="col-md-12">
+                        <textarea class="textarea" placeholder="Mensaje" type="type" Message="Name">Mensaje</textarea>
+                     </div>
+                     <div class="col-md-12">
+                        <button class="send_btn">Enviar</button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end contact -->
+</section>
+
+<section class="aboutp">
+
+    <div class="footer">
+       <div class="container">
+          <div class="row">
+            <div class="col-md-12 offset-md-1 border-top1 d-flex justify-content-center">
+              <a class="logo_footer" href="index.html"><img src="./assets/imagenes/LandingPage/logoSF.png" alt="#" style="width: 200px;"/></a>
+            </div>
+             
+             <div class="col-md-5">
+                <div class="reader">
+                   <h3>Dirección</h3>
+                   <ul>
+                      <li>León Gunajuato México <br>
+                       UTL
+                      </li>
+                   </ul>
+                </div>
+             </div>
+             <div class="col-lg-5 col-md-4">
+                <div class="reader">
+                   <h3>Telefono</h3>
+                   <ul>
+                      <li>(+52) 8522369417<br>
+                         (+52) 8522369418
+                      </li>
+                   </ul>
+                </div>
+             </div>
+             <div class="col-lg-2 col-md-3 ">
+                <div class="reader">
+                   <h3>Email</h3>
+                   <ul>
+                      <li> <a href="Javascript:void(0)">ventasquetzalli@gmail.com<br>
+                         </a>
+                      </li>
+                      <li> <a href="Javascript:void(0)">infoquetzalli@gmail.com<br>
+                         </a>
+                      </li>
+                   </ul>
+                </div>
+             </div>
+             <div class="col-md-12 offset-md-1">
+                <ul class="social_icon text_align_center">
+                   <li> <a href="Javascript:void(0)"><i class="fas fa-facebook-f"></i></a></li>
+                   <li> <a href="Javascript:void(0)"><i class="fas fa-twitter"></i></a></li>
+                   <li> <a href="Javascript:void(0)"><i class="fas fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+             </div>
+          </div>
+       </div>
+       <div class="copyright text_align_center">
+          <div class="container">
+             <div class="row">
+                <div class="col-md-12 offset-md-1">
+                   <p>Copyright 2023 Quetzalli</p>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+
+
+</section>

@@ -1,0 +1,61 @@
+<div class="container">
+    <form (submit)="crearCuenta()">
+      <div class="form-header">
+        <div class="title">
+          <h1>Crear cuenta</h1>
+        </div>
+      </div>
+  
+      <div class="input-group">
+        <div class="input-box">
+          <label for="firstname"><i class="fas fa-user"></i> Nombre</label>
+          <input id="firstname" type="text" name="firstname" placeholder="Ingrese el primer nombre" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="lastname"><i class="fas fa-user"></i> Apellido Paterno</label>
+          <input id="lastname" type="text" name="lastname" placeholder="Ingrese apellido paterno" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="email"><i class="fas fa-user "></i> Apellido Materno</label>
+          <input id="email" type="email" name="email" placeholder="Ingrese apellido materno" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="correo"><i class="fas fa-envelope"></i> Correo</label>
+          <input id="correo" type="email" name="correo" placeholder="Ingrese un correo" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="rol"><i class="fas fa-users"></i> Rol</label>
+          <select class="form-control" id="rol" name="rol" required>
+            <option value="" selected disabled>Seleccione un rol</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Empleado">Empleado</option>
+          </select>
+        </div>
+  
+        <div class="input-box">
+            <label for="number"><i class="fas fa-phone"></i> Teléfono</label>
+            <input id="number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" required pattern="[0-9]+">
+        </div>
+  
+        <div class="input-box">
+          <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
+          <input id="password" type="password" name="password" placeholder="Ingrese su contraseña" required>
+        </div>
+      </div>
+  
+      <div class="continue-button d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary mx-3" (click)="cancelar()">
+           Cancelar
+        </button>
+        <button type="submit" class="btn btn-custom" [disabled]="!formularioValido()">
+         Agregar
+        </button>
+      </div>
+    </form>
+  </div>
+  

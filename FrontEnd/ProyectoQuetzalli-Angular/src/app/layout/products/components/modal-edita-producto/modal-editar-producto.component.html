@@ -1,0 +1,58 @@
+<button (click)="open(content)" class="btn btn-info" >Editar</button>
+
+<!-- Large modal -->
+<div class="card-body">
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">Editar producto</h4>
+            <button (click)="d('Cross click')" aria-label="Close" class="close" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!--        "nombreProducto": "", 
+            "descripcion": "",
+            "foto": "string",
+            "costoProduccion":,
+            "precioVenta": ,
+            "observaciones": "string",
+            "idStock": ,
+            "estatus": "string" -->
+
+            <div class="form-group">
+                <label for="nombreProducto">Nombre del producto</label>
+                <input type="text" class="form-control" [(ngModel)]="nombreProducto" >
+            </div>
+            <div class="form-group">
+                <label for="costoProduccion">Costo Producción</label>
+                <input type="number" class="form-control" [(ngModel)]="costoProduccion">
+            </div>
+            <div class="form-group">
+                <label for="precioVenta">Precio Venta</label>
+                <input type="number" class="form-control" [(ngModel)]="precioVenta">
+            </div>
+            <div class="form-group">
+                <label for="idStock">Cantidad de producto</label>
+                <input type="number" class="form-control" [(ngModel)]="cantidad">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea class="form-control" rows="1" [(ngModel)]="descripcion"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="observaciones">Observaciones</label>
+                <textarea class="form-control" rows="1" [(ngModel)]="observaciones"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="foto">Agregar Imagen</label>
+                <br>
+                <input type="file" class="form-control-file" id="foto" [(ngModel)]="foto">
+              </div>
+            <br>
+            <div class="align-content-end" style="margin-left: 380px;">
+                <button type="submit" class="btn btn-success" (click)="EditarProductoModal()">Agregar</button>
+            </div>
+
+        </div>
+    </ng-template>
+</div>

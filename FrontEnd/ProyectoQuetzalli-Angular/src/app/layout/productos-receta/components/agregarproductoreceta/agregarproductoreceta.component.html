@@ -1,0 +1,40 @@
+<div class="container">
+  <form (submit)="crearProductoReceta()">
+    <div class="form-header">
+      <div class="title">
+        <h1>Agregar Producto</h1>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="input-box">
+        <label for="receta"><i class="fas fa-book"></i> Receta</label>
+        <select id="receta" class="form-control" [(ngModel)]="selectedRecetaId" name="receta" required>
+          <option *ngFor="let receta of recetas" [value]="receta.idRecetaPulsera">
+            {{ receta.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="input-box">
+        <label for="cantidad"><i class="fas fa-sort-amount-up"></i> Cantidad</label>
+        <input id="cantidad" type="number" name="cantidad" placeholder="Ingrese la cantidad" [(ngModel)]="cantidad" required>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="input-box">
+        <label for="foto"><i class="fas fa-image"></i> Foto</label>
+        <!-- <input id="foto" type="text" name="foto" placeholder="Ingrese la URL de la foto" [(ngModel)]="foto" required> -->
+        <input id="foto" type="file" name="foto"class="form-control-file" id="foto" [(ngModel)]="foto">
+      </div>
+    </div>
+
+    <div class="continue-button d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary mx-3" (click)="cancelar()">Cancelar</button>
+      <button type="submit" class="btn btn-custom" [disabled]="!formularioValido()">Agregar</button>
+    </div>
+  </form>
+</div>

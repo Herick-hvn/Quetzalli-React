@@ -1,0 +1,16 @@
+.colorhint-gradient {
+    background: linear-gradient(to left, #0fb268, 7.2%, #1c503e, #1c3c33);
+}
+
+.card {
+    background-color: whitesmoke;
+}
+
+.form-control{
+    background: transparent;
+    border-radius: 0px;
+    border-top: 0px ;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: #8F6715;
+}

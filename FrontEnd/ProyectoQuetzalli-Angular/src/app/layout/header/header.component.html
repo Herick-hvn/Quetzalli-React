@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="#" style="color: #D4BA72; font-family: Cabrito Serif Extended Regular;">QUETZALLI</a>
+    <div class="collapse navbar-collapse">
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" placeholder="Buscar" type="text" />
+        </form> -->
+        <ul class="navbar-nav ml-auto">
+            &nbsp;
+
+            &nbsp;
+       
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link" href="javascript:void(0)" ngbDropdownToggle>
+                    <i class="fa fa-user"></i> {{ userEmail }}<b class="caret"></b>
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a (click)="onLogout()" [routerLink]="['/login']" class="dropdown-item">
+                        <i class="fa fa-fw fa-power-off"></i> Cerrar sesión
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

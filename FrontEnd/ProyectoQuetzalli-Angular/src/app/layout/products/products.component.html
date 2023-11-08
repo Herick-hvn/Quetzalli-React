@@ -1,0 +1,71 @@
+<h1>Productos</h1>
+
+<alert [type]="'success'" [dismissible]="false" *ngIf="showAlert">
+    ¡El producto se agregó con éxito!
+</alert>
+<alert [type]="'success'" [dismissible]="false" *ngIf="showAlertEdit">
+    ¡El producto se editó con éxito!
+</alert>
+
+<div class="content">
+    <div class="row">
+        <div class="col">
+            <app-modal></app-modal>
+        </div>
+        <div class="col form-group row" style="margin-left: 100px;">
+            <label for="buscar" class="col-sm-2 col-form-label">Buscar:</label>
+            <div class="col-sm-10">
+                <input [(ngModel)]="listFilter" type="text" class="form-control"
+                    style="border-top: transparent; border-left: transparent; border-right: transparent; border-color: black; border-radius: 2px;">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="card mb-3">
+        <div class="card-header" style="background-color: #D4BA72;">
+            Productos
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table" style="border: 1px;">
+                <thead>
+                    <tr>
+                        <!-- <th>Id</th> -->
+                        <th>Nombre</th>
+                        <th>Precio Venta</th>
+                        <th>Costo Producción</th>
+                        <th>Observaciones</th>
+                        <!-- <th>Descripción</th> -->
+                        <th>Estatus</th>
+                        <th>Foto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let productos of listaProductos | ProductosFilter:listFilter">
+                        <!-- "idproductos": 0,
+                        "nombreProducto": "string",
+                        "descripcion": "string",
+                        "foto": "string",
+                        "costoProduccion": 0,
+                        "precioVenta": 0,
+                        "observaciones": "string",
+                        "idStock": 0,
+                        "estatus": "string" -->
+                        <!-- <th scope="row">{{productos.idproductos}}</th> -->
+                        <td>{{productos.nombreProducto}}</td>
+                        <td>${{productos.precioVenta}}</td>
+                        <td>${{productos.costoProduccion}}</td>
+                        <td>{{productos.observaciones}}</td>
+                        <!-- <td>{{productos.descripcion}}</td> -->
+                        <td [ngStyle]="{ color: productos.estatus == '0' ? 'red' : 'black' }">{{productos.estatus}}</td>
+                        <td><img [src]="productos.foto" [title]="productos.foto" [style.width.px]="imageWidth"
+                                [style.margin.px]="imageMargin"></td>
+                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

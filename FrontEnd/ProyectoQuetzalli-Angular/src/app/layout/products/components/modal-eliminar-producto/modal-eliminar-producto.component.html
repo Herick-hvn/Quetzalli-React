@@ -1,0 +1,22 @@
+<button (click)="open(content)" class="btn btn-danger">Eliminar</button>
+
+<!-- Large modal -->
+<div class="card-body">
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">Eliminar producto</h4>
+            <button (click)="d('Cross click')" aria-label="Close" class="close" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="align-content-center">
+                <h4>¿Seguro que quiere eliminar el producto?</h4>
+            </div>
+            <div class="button-container" style="display: block; justify-content: space-between;">
+                <button (click)="EliminarProductoModal(s)" class="btn btn-danger" >Si</button>
+                <button (click)="EliminarProductoModal(n)" class="btn btn-success" >No</button>
+            </div>
+        </div>
+    </ng-template>
+</div>

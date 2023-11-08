@@ -1,0 +1,23 @@
+<app-header-cliente></app-header-cliente>
+<br>
+<section style="margin-top: 40px; margin-left: 50px;">
+  <div class="continer">
+    <div class="row">
+      <div class="card" style="width: 18rem; margin-top: 15px; margin-left: 10px;"
+        *ngFor="let productos of listaProductos">
+        <img src="{{ productos.foto }}" class="card-img" style="margin-top: 10px;" alt="{{ productos.nombreProducto }}"
+          [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
+        <div class="card-body">
+          <h5 class="card-title">{{ productos.nombreProducto }}</h5>
+          <p class="card-text">{{ productos.descripcion }}</p>
+          <p class="card-text" style="font-size: larger; font-style: oblique; border-radius: 0px;">${{
+            productos.precioVenta }}.00 MX</p>
+        </div>
+
+        <app-modal-alert [datosProducto]="productos"></app-modal-alert>
+        <!-- <button type="submit" class="btn btn-success" style="width: 16rem; margin-bottom: 10px;">Show snack-bar</button> -->
+
+      </div>
+    </div>
+  </div>
+</section>

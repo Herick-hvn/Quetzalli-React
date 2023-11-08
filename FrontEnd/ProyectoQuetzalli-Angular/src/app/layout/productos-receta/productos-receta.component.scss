@@ -1,0 +1,44 @@
+
+/* Agrega un estilo para la animación de entrada */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .loading-indicator {
+    /* Estilos para el indicador de carga */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Ajusta la altura según tus necesidades */
+    font-size: 18px;
+    animation: fadeIn 0.5s ease-in-out; /* Agrega la animación de entrada */
+  }
+  
+  /* Otros estilos CSS existentes */
+  /* ... */
+  /* Ajusta el tamaño de las imágenes en la tabla */
+.product-image {
+    max-width: 80px; /* Cambia este valor según tu preferencia */
+    max-height: 80px; /* Cambia este valor según tu preferencia */
+    width: auto;
+    height: auto;
+  }
+  
+  /* Añade estilos para el caso de imágenes faltantes */
+  .no-image {
+    font-weight: bold;
+    color: #ccc;
+  }
+  
+  /* Reducir el ancho de la columna de descripción */
+.mat-column-descripcion {
+  max-width: 200px; /* Ajusta el valor según tus necesidades */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

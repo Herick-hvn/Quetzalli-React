@@ -1,0 +1,145 @@
+
+.logo-img {
+    max-width: 200px; 
+    height: auto;
+  }
+  
+  .card-img {
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .navbar {
+    background-color: white;
+   }
+   
+   .navbar-brand {
+    color: black;
+    font-size: 2rem;
+   }
+   
+   .navbar-nav {
+    align-items: flex-end;
+   }
+   
+   .navbar-nav .nav-link {
+    color: black;
+    margin-right: 1.5rem;
+   }
+   
+   .carousel-inner {
+    border-radius: 20px;
+    border-color: white;
+   }
+   
+   .carousel-control-prev,
+   .carousel-control-next {
+    border-radius: 10px;
+    width: 2%;
+   }
+   
+   .carousel-control-prev:hover,
+   .carousel-control-next:hover {
+    border-radius: 10;
+    background-color:#ccc;
+   }
+
+.card-wrapper {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px; 
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  flex: 1;
+  text-align: justify;
+}
+
+.image {
+  flex: 1;
+  text-align: center;
+}
+
+.image img {
+  max-width: 60%; 
+}
+.scroll-button {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s ease-in-out;
+  transform: translateY(20px);
+  z-index: 999;
+}
+
+.scroll-button.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: floatingAnimation 2s ease-in-out infinite;
+}
+
+@keyframes floatingAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px); /* Baja 5px */
+  }
+  100% {
+    transform: translateY(0); /* Regresa a la posición original */
+  }
+}
+
+ 
+ .scroll-to-top-button {
+  color: #4caf50;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+ }
+ 
+ .scroll-to-top-button:hover {
+  background-color: #ffffff; 
+  transform: scale(1.1); 
+ }
+
+ .btn:hover {
+  background-color: white;
+}

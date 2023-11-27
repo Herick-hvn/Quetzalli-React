@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import NavBar from "../components/NavBar";
+import NavBarPagina from "../components/NavBarPagina";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import "../styles/custom.css";
+import "../styles/Custom/custom.css";
 import ModalAlertComponent from "../components/ModalAlertComponent";
 import ProductCardComponent from "../components/ProductCardComponent";
 import { Carousel } from "react-bootstrap";
-import "../styles/custom.css";
 import FooterComponent from "../components/FooterComponent";
 import ScrollButton from "../components/ScrollButton";
 import InicioP from "../components/InicioP";
-
 
 const LandingPageClienteComponent = () => {
   const valoresRef = useRef(null);
@@ -45,7 +43,7 @@ const LandingPageClienteComponent = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBarPagina />
       <Container fluid>
         <Row className="mt-4 align-items-center justify-content-center">
           <Col md={6}>

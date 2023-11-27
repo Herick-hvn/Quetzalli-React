@@ -5,7 +5,7 @@ import {
   faFacebookF,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import "../styles/custom.css";
+import "../styles/Custom/custom.css";
 
 const FooterComponent = () => {
   return (
@@ -136,7 +136,6 @@ const FooterComponent = () => {
               </div>
             </div>
 
-           
             <div className="d-flex">
               <i className="bi bi-star-fill"></i> {/* Icono de ejemplo */}
               <div className="pl-3">
@@ -198,11 +197,11 @@ const FooterComponent = () => {
           <h3
             className="mb-4"
             style={{
-                fontFamily: "serif",
-                fontWeight: "bold",
-                fontSize: "2rem",
-                letterSpacing: "2px",
-                color: "#756539",
+              fontFamily: "serif",
+              fontWeight: "bold",
+              fontSize: "2rem",
+              letterSpacing: "2px",
+              color: "#756539",
             }}
           >
             Enlaces rápidos
@@ -230,16 +229,16 @@ const FooterComponent = () => {
           <h3
             className="mb-4"
             style={{
-                fontFamily: "serif",
-                fontWeight: "bold",
-                fontSize: "2rem",
-                letterSpacing: "2px",
-                color: "#756539",
+              fontFamily: "serif",
+              fontWeight: "bold",
+              fontSize: "2rem",
+              letterSpacing: "2px",
+              color: "#756539",
             }}
           >
             Recibir información
           </h3>
-          <form action="" style={{marginRight:'20px'}}>
+          <form action="" style={{ marginRight: "20px" }}>
             <div className="form-group">
               <input
                 type="text"
@@ -262,7 +261,7 @@ const FooterComponent = () => {
               <button
                 className="btnbtn-block text-white border-0 py-3"
                 type="submit"
-                style={{backgroundColor:'#756539'}}
+                style={{ backgroundColor: "#756539" }}
               >
                 Enviar
               </button>
@@ -279,19 +278,11 @@ const FooterComponent = () => {
         }}
       >
         <p className="m-0 text-center text-white">
-          <a
-            className="font-weight-bold"
-            href=""
-            style={{color: "#756539",}}
-          >
+          <a className="font-weight-bold" href="" style={{ color: "#756539" }}>
             Aviso de Privacidad Simplificado
           </a>
           |
-          <a
-            className="font-weight-bold"
-            href=""
-            style={{color: "#756539",}}
-          >
+          <a className="font-weight-bold" href="" style={{ color: "#756539" }}>
             Aviso de Privacidad Integral
           </a>
         </p>

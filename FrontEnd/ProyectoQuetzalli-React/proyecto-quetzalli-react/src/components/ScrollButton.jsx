@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { FaArrowAltCircleUp } from 'react-icons/fa';
-import "../styles/custom.css";
+import React, { useState, useEffect } from "react";
+import { FaArrowAltCircleUp } from "react-icons/fa";
+import "../styles/Custom/custom.css";
 
 const ScrollButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,22 +14,22 @@ const ScrollButton = () => {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
 
     return () => {
-      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   return (
-    <div className={`scroll-button ${isVisible ? 'show' : ''}`}>
+    <div className={`scroll-button ${isVisible ? "show" : ""}`}>
       <button onClick={scrollToTop} className="scroll-to-top-button">
         <FaArrowAltCircleUp />
       </button>

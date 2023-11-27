@@ -1,0 +1,26 @@
+/* Navbar.css */
+
+/* Estilos adicionales personalizados */
+.navbar {
+    background-color: #182F2B;
+    padding: 10px 0;
+    border-bottom: 2px solid #182F2B;
+  }
+  
+  .logo-img {
+    max-height: 84px;
+  }
+
+  
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+  }
+  

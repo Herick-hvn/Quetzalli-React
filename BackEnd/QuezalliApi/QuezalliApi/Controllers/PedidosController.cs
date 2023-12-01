@@ -121,6 +121,63 @@ namespace QuezalliApi.Controllers
             return NoContent();
         }
 
+        [HttpGet("informacion/{idPedido}")]
+        public IActionResult ObtenerInformacionPedido(int idPedido)
+        {
+            var informacionPedido = _context.Pedidos
+                .Where(p => p.IdPedidos == idPedido)
+                .Select(p => new
+                {
+                    Cliente = _context.Personas
+                        .Where(persona => persona.IdUsuario == p.IdCliente)
+                        .Select(persona => new
+                        {
+                            Nombre = persona.Nombre,
+                            Correo = _context.Users
+                                .Where(user => user.Id == persona.IdUsuario)
+                                .Select(user => user.Email)
+                                .FirstOrDefault(),
+                            Telefono = persona.Telefono
+                        })
+                        .FirstOrDefault(),
+
+                    Pedido = new
+                    {
+                        Total = p.total,
+                        Estatus = p.Estatus
+                    },
+
+                    Productos = _context.PedidoProductos
+                        .Where(pp => pp.IdPedidos == idPedido)
+                        .Select(pp => new
+                        {
+                            Producto = _context.Productos
+                                .Where(producto => producto.Idproductos == pp.IdProducto)
+                                .Select(producto => new
+                                {
+                                    Foto = producto.Foto,
+                                    Observaciones = producto.Observaciones,
+                                    Nombre = producto.NombreProducto,
+                                    Descripcion = producto.Descripcion,
+                                    PrecioVenta = producto.PrecioVenta
+                                })
+                                .FirstOrDefault(),
+
+                            Cantidad = pp.Cantidad
+                        })
+                        .ToList()
+                })
+                .FirstOrDefault();
+
+            if (informacionPedido == null)
+            {
+                return NotFound(); // Si no se encontró el pedido, devolver un 404
+            }
+
+            return Ok(informacionPedido); // Devolver la información encontrada en formato JSON
+        }
+
+
         private bool PedidoExists(int id)
         {
             return (_context.Pedidos?.Any(e => e.IdPedidos == id)).GetValueOrDefault();

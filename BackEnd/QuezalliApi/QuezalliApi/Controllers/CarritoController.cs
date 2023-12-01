@@ -19,6 +19,17 @@ namespace QuezalliApi.Controllers
         {
             _context = context;
         }
+
+        // GET: api/Carritoes
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Carrito>>> GetCarrito()
+        {
+            if (_context.Carrito == null)
+            {
+                return NotFound();
+            }
+            return await _context.Carrito.ToListAsync();
+        }
         // GET: api/Carrito/clienteId
         [HttpGet("{clienteId}")]
         public async Task<ActionResult<IEnumerable<Carrito>>> GetCarrito(int clienteId)
@@ -74,22 +85,21 @@ namespace QuezalliApi.Controllers
 
 
 
-
-
         // POST: api/Carrito
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Carrito>> PostCarrito(Carrito carrito)
         {
-          if (_context.Carrito == null)
-          {
-              return Problem("Entity set 'QuetzalliDBContext.Carrito'  is null.");
-          }
+            if (_context.Carrito == null)
+            {
+                return Problem("Entity set 'QuetzalliDBContext.Carrito'  is null.");
+            }
             _context.Carrito.Add(carrito);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCarrito", new { id = carrito.IdCarrito }, carrito);
         }
+
 
 
         // DELETE: api/Carrito/clienteId/productoId

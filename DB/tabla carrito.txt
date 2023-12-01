@@ -1,0 +1,13 @@
+use QuetzalliDB;
+
+CREATE TABLE Carrito (
+    IdCliente INT,
+    IdProducto INT,
+    NombreProducto VARCHAR(100),
+    Descripcion VARCHAR(255),
+    Cantidad INT,
+    Precio FLOAT
+);
+
+
+EXEC sp_rename 'Pedido.codigo', 'total', 'COLUMN';

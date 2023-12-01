@@ -9,7 +9,7 @@ namespace QuezalliApi.Models
         public int IdCliente { get; set; }
         public DateTime FechaPedido { get; set; }
         public DateTime? FechaEntrega { get; set; }
-        public int Codigo { get; set; }
-        public int Estatus { get; set; }
+        public int total { get; set; }
+        public int Estatus { get; set; } 
     }
 }

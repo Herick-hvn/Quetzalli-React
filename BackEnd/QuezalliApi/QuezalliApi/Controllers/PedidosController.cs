@@ -79,21 +79,27 @@ namespace QuezalliApi.Controllers
 
             return NoContent();
         }
-
         // POST: api/Pedidos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Pedido>> PostPedido(Pedido pedido)
         {
-          if (_context.Pedidos == null)
-          {
-              return Problem("Entity set 'QuetzalliDBContext.Pedidos'  is null.");
-          }
+            if (_context.Pedidos == null || _context.Carrito == null)
+            {
+                return Problem("Entity set 'QuetzalliDBContext.Pedidos' or 'QuetzalliDBContext.Carrito' is null.");
+            }
+
+            // Eliminar registros de Carrito con el mismo IdCliente que llega en el nuevo pedido
+            var carritosCliente = _context.Carrito.Where(c => c.IdCliente == pedido.IdCliente);
+            _context.Carrito.RemoveRange(carritosCliente);
+
+            // Agregar el nuevo pedido
             _context.Pedidos.Add(pedido);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPedido", new { id = pedido.IdPedidos }, pedido);
         }
+
 
         // DELETE: api/Pedidos/5
         [HttpDelete("{id}")]

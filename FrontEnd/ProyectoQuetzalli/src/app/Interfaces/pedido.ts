@@ -3,7 +3,7 @@ export interface Pedido {
     "idCliente": number,
     "fechaPedido": string,
     "fechaEntrega": string,
-    "codigo": number,
+    "total": number,
     "estatus": number
 }
 

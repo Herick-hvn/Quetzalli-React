@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Usuarios } from 'src/app/Interfaces/usuarios';
+import { Observable, forkJoin, of } from 'rxjs';
+import { UsuarioConPedido, UsuarioConPersonaYPedido, Usuarios } from 'src/app/Interfaces/usuarios';
 import { Personas } from 'src/app/Interfaces/personas';
 import { PersonaConUsuario } from 'src/app/Interfaces/personaConUsuario';
-import { switchMap, map, catchError } from 'rxjs/operators';
+import { switchMap, map, catchError, mergeMap, concatMap } from 'rxjs/operators';
+import { Pedido } from 'src/app/Interfaces/pedido';
 
 @Injectable({
   providedIn: 'root',
@@ -83,6 +84,36 @@ export class UsuariosService {
     );
   }
 
+  getUsuariosConPedidos(): Observable<UsuarioConPedido[]> {
+    return this.http.get<Usuarios[]>(this.apiUrl).pipe(
+      switchMap((usuarios) => {
+        return this.http.get<Pedido[]>('https://localhost:7239/api/Pedidos').pipe(
+          map((pedidos) => {
+            const usuariosConPedidos: UsuarioConPedido[] = [];
+    
+            usuarios.forEach((usuario) => {
+              const pedido = pedidos.find((p) => p.idCliente === usuario.id);
+              if (pedido) {
+                const usuarioConPedido: UsuarioConPedido = {
+                  id: usuario.id,
+                  email: usuario.email,
+                  password: usuario.password,
+                  rol: usuario.rol,
+                  active: usuario.active,
+                  pedido: pedido,
+                };
+                usuariosConPedidos.push(usuarioConPedido);
+              }
+            });
+    
+            return usuariosConPedidos;
+          })
+        );
+      })
+    );
+  }
+  
+
   getPersonasWithUsuarios(): Observable<PersonaConUsuario[]> {
     return this.http.get<Personas[]>('https://localhost:7239/api/Personas').pipe(
       switchMap((personas) => {
@@ -112,6 +143,46 @@ export class UsuariosService {
       })
     );
   }
+
+  
+  getUsuariosConPersonasYPedidos(): Observable<UsuarioConPersonaYPedido[]> {
+    return forkJoin({
+      usuarios: this.http.get<Usuarios[]>(this.apiUrl),
+      personas: this.http.get<Personas[]>('https://localhost:7239/api/Personas'),
+      pedidos: this.http.get<Pedido[]>('https://localhost:7239/api/Pedidos'),
+    }).pipe(
+      switchMap(({ usuarios, personas, pedidos }) => {
+        return forkJoin(
+          usuarios.map((usuario) => {
+            const persona = personas.find((p) => p.idUsuario === usuario.id) || null; // Devolver null si no se encuentra la Persona
+            const pedido = pedidos.find((p) => p.idCliente === usuario.id) || null; // Devolver null si no se encuentra el Pedido
+            return of({
+              id: usuario.id,
+              email: usuario.email,
+              password: usuario.password,
+              rol: usuario.rol,
+              active: usuario.active,
+              persona,
+              pedido,
+            });
+          })
+        ).pipe(
+          map((usuariosConPersonasYPedidos) =>
+            usuariosConPersonasYPedidos.filter(
+              (usuarioConPersonaYPedido) =>
+                usuarioConPersonaYPedido.pedido !== null &&
+                usuarioConPersonaYPedido.persona !== null
+            )
+          )
+        );
+      })
+    );
+  }
+  
+  
+  
+
+
 
   getPersonaWithUsuarioById(id: number): Observable<PersonaConUsuario | null> {
     return this.http.get<Personas[]>('https://localhost:7239/api/Personas').pipe(

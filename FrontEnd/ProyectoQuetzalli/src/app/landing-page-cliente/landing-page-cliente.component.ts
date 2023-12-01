@@ -9,7 +9,7 @@ import { ServiciosPedidoService } from '../services/Pedido/servicios-pedido.serv
 @Component({
   selector: 'app-landing-page-cliente',
   templateUrl: './landing-page-cliente.component.html',
-  styleUrls: ['./landing-page-cliente.component.css']
+  styleUrls: ['./landing-page-cliente.component.scss']
 })
 export class LandingPageClienteComponent {
 
@@ -91,7 +91,7 @@ export class LandingPageClienteComponent {
               "costoProduccion": arrayRespuesta[i].costoProduccion,
               "precioVenta": arrayRespuesta[i].precioVenta,
               "observaciones": arrayRespuesta[i].observaciones,
-              "idStock": arrayRespuesta[i].idStock,
+              "cantidad": arrayRespuesta[i].cantidad,
               "estatus": arrayRespuesta[i].estatus
             });
           }

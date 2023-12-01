@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit{
           "costoProduccion": arrayRespuesta[i].costoProduccion,
           "precioVenta": arrayRespuesta[i].precioVenta,
           "observaciones": arrayRespuesta[i].observaciones,
-          "idStock": arrayRespuesta[i].idStock,
+          "cantidad": arrayRespuesta[i].cantidad,
           "estatus": arrayRespuesta[i].estatus
         });
       }

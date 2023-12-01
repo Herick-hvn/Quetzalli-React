@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I/k2AdnF8HO1rw53ChtbNt/6q0J78WDwQtqo3YFQuiiNa0YJbaqZKH9+KtR59hZIFLwQWPKDE9z28ZEYy5i1jw==",
+  "dgSpecHash": "FuJzItjerymVGm90oaWfD2eC8e4DPGVEN8/ADoaZI/58+hL27Qv8RDKZCNpB+SezbtRT4HyQmvtjRE2KDfnrZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\losim\\Desktop\\Quetzalli\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj",
+  "projectFilePath": "C:\\Users\\losim\\Desktop\\proyectoo\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\losim\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\losim\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

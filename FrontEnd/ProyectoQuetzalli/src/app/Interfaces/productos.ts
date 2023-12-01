@@ -6,7 +6,7 @@ export interface Productos {
     "costoProduccion": number,
     "precioVenta": number,
     "observaciones": string,
-    "idStock": number,
+    "cantidad": number,
     "estatus": string
 }
 

@@ -64,7 +64,7 @@ export class AgregarProductoRecetaComponent implements OnInit {
                 estatus: '1',
                 observaciones: selectedReceta.observaciones,
                 foto: rutaArchivo,
-                idStock: 10
+                cantidad: this.cantidad
               };
 
               

@@ -6,9 +6,12 @@ import LoginForm from "./pages/LoginForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import DetallesProduto from "./pages/Dashboard/DetalleProducto/DetallesProduto";
+import Carrito from "./pages/Dashboard/Carrito/Carrito";
 
-ReactDOM.render(
-  <React.StrictMode>
+
+const App = () => {
+
+return (
     <Router>
       <div>
         <Routes>
@@ -17,11 +20,12 @@ ReactDOM.render(
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/detalleproductos/:id" element={<DetallesProduto />} />
+          <Route path="/carrito" element={<Carrito />} />
         </Routes>
       </div>
     </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
 );
+}
+
 
 export default App;

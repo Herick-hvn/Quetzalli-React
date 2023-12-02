@@ -10,6 +10,13 @@ function Productos() {
   const navigate = useNavigate();
   const [palabraProducto, setPalabraProducto] = useState("");
 
+  const [carrito, setCarrito] = useState([]);
+
+  useEffect(() => {
+    const storedCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    setCarrito(storedCarrito);
+  }, []);
+
   const filterProduct = (event) => {
     setPalabraProducto(event.target.value);
   };
@@ -102,7 +109,7 @@ function Productos() {
                     <Card.Subtitle style={{ color: "green" }}>
                       ${producto.precioVenta}.00
                     </Card.Subtitle>
-                    <SweetalertAgregar />
+                    <SweetalertAgregar producto={[producto]} carrito={carrito} setCarrito={setCarrito}/>
                   </Card.Body>
                 </Card>
               </Col>

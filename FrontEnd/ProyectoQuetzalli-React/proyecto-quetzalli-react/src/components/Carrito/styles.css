@@ -1,0 +1,67 @@
+.custom-button {
+  background-color: rgb(24, 47, 43);
+  border-color: rgb(24, 47, 43);
+  color: #fff; /* Color del texto */
+  margin-top: 5px;
+}
+
+.custom-button:hover {
+  background-color: #fff; /* Cambia el color al pasar el ratón por encima */
+  border-color: #1a352f;
+  color: black;
+}
+
+.custom-button-delete {
+    background-color: rgba(220, 53, 69, 1); 
+    border-color: rgba(220, 53, 69, 1);
+    color: #fff; /* Color del texto */
+    margin-top: 5px;
+  }
+  
+  .custom-button-delete:hover {
+    background-color: #fff; /* Cambia el color al pasar el ratón por encima */
+    border-color: rgba(220, 53, 69, 1);
+    color: rgba(220, 53, 69, 1);
+  }
+
+/* Estilos para el contenedor de los botones */
+.cantidad-container {
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo común para ambos botones */
+  .cantidad-button {
+    background-color: rgb(24, 47, 43);
+    border: 1px solid rgb(24, 47, 43);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0;
+    border-radius: 5px; /* Añadido para redondear los bordes */
+  }
+  
+  /* Estilos específicos para el botón de incremento */
+  .cantidad-button.incrementar {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  /* Estilos específicos para el botón de decremento */
+  .cantidad-button.decrementar {
+    border-radius: 5px 0 0 5px;
+  }
+  
+  /* Estilos para el campo de entrada */
+  .cantidad-input {
+    border: 1px solid rgb(24, 47, 43);
+    padding: 5px 10px;
+    font-size: 20px;
+    width: 60px;
+    text-align: center;
+    margin: 0;
+  }
+  

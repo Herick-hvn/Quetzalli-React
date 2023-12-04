@@ -7,13 +7,51 @@ const CardCarrito = ({
   precio,
   imagen,
   cantidad,
-  eliminar
+  eliminar,
+  idProducto,
+  idCliente,
+  onCantidadChange 
 }) => {
   const [cant, setCantidad] = useState(cantidad);
 
-  const handleIncrement = () => setCantidad(cant + 1);
+  const handleIncrement = () => {
+    const newCantidad = cant + 1;
+    setCantidad(newCantidad);
+    onCantidadChange(newCantidad);
+    updateCarrito(newCantidad);
+  };
 
-  const handleDecrement = () => (cant > 0 ? setCantidad(cant - 1) : null);
+  const handleDecrement = () => {
+    if (cant > 1) {
+      const newCantidad = cant - 1;
+      setCantidad(newCantidad);
+      onCantidadChange(newCantidad);
+      updateCarrito(newCantidad);
+    }
+  };
+
+  const updateCarrito = async (newCantidad) => {
+    const url = `https://localhost:7239/api/Carrito/${idCliente}/${idProducto}`;
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCantidad),
+      });
+
+      if (!response.ok) {
+        console.error(`Error al agregar al carrito: ${response.statusText}`);
+        return;
+      }
+
+      console.log("Producto agregado al carrito exitosamente");
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error.message);
+    }
+  };
+  
 
   // Dividir el texto en oraciones usando el punto como delimitador
   const oraciones = descripcion.split(".");

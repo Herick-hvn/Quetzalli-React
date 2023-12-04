@@ -20,24 +20,19 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://localhost:7239/api/Users/Login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch("https://localhost:7239/api/Users"
+      );
 
       if (response.ok) {
         const data = await response.json();
         console.log("Respuesta del API:", data);
         toast.success(data.message, {
           position: toast.POSITION.TOP_RIGHT,
-        });
+        }); 
 
         // Esperar 2 segundos
         setTimeout(() => {
-          navigate("/productos");
+          navigate(`/productos/${idCliente}`);
         }, 2000);
       } else {
         console.error("Error al iniciar sesión");

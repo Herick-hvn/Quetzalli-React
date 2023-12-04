@@ -15,12 +15,12 @@ return (
     <Router>
       <div>
         <Routes>
-          {/* <Route path="/" element={<LandingPageClienteComponent />} /> */}
-          {/* <Route path="/productos" element={<Dashboard />} /> */}
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<LandingPageClienteComponent />} /> 
+          <Route path="/productos" element={<Dashboard />} />
+          {/* <Route path="/" element={<Dashboard />} /> */}
           <Route path="/login" element={<LoginForm />} />
           <Route path="/detalleproductos/:id" element={<DetallesProduto />} />
-          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/carrito" element={<Carrito idCliente={1}/>} />
         </Routes>
       </div>
     </Router>

@@ -46,6 +46,21 @@ namespace QuezalliApi.Controllers
             return carritos;
         }
 
+        [HttpGet("{clienteId}/{productoId}")]
+        public async Task<ActionResult<Carrito>> GetCarritoByIdProducto(int clienteId, int productoId)
+        {
+            var carrito = await _context.Carrito
+                                    .FirstOrDefaultAsync(c => c.IdCliente == clienteId && c.IdProducto == productoId);
+
+            if (carrito == null)
+            {
+                return NotFound();
+            }
+
+            return carrito;
+        }
+
+
         // PUT: api/Carrito/clienteId/productoId
         [HttpPut("{clienteId}/{productoId}")]
         public async Task<IActionResult> PutCarrito(int clienteId, int productoId, [FromBody] int nuevaCantidad)

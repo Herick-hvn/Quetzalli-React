@@ -1,12 +1,11 @@
 import { React, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { Card, Container } from "react-bootstrap";
 import NavBar from "../../../components/NavBarPrincipal/NavBar";
 import SweetalertAgregar from "../../../components/Sweetalerts/SweetalertAgregar";
 
 const DetallesProduto = () => {
   const [producto, setProducto] = useState({});
-  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {

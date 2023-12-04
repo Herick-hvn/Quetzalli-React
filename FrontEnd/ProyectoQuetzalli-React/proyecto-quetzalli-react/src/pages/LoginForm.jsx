@@ -30,10 +30,15 @@ const LoginForm = () => {
           position: toast.POSITION.TOP_RIGHT,
         }); 
 
+        
         // Esperar 2 segundos
         setTimeout(() => {
-          navigate(`/productos/${idCliente}`);
+          navigate(`/productos`);
         }, 2000);
+
+        const idCliente = 1;
+
+        sessionStorage.setItem("idCliente",idCliente);
       } else {
         console.error("Error al iniciar sesión");
         const errorData = await response.json();

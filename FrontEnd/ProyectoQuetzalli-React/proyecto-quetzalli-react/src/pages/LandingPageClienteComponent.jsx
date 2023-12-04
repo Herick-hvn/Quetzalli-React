@@ -52,7 +52,7 @@ const LandingPageClienteComponent = () => {
           <Col md={5} className="pl-md-5">
             <Carousel className="text-center">
               {productos.map((producto) => (
-                <Carousel.Item key={producto.id}>
+                <Carousel.Item key={producto.idproductos}>
                   <ProductCardComponent producto={producto} />
                 </Carousel.Item>
               ))}

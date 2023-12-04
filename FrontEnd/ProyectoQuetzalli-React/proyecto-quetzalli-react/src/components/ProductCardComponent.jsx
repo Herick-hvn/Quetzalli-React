@@ -1,7 +1,12 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ProductCardComponent = ({ producto }) => {
+  const navigate = useNavigate();
+  const comprar = () =>{
+    navigate('/login');
+  }
   return (
     <Col className="mb-4 d-flex justify-content-center">
       {/* Tarjeta de producto */}
@@ -24,8 +29,9 @@ const ProductCardComponent = ({ producto }) => {
           <button
             className="btn btn-primary"
             style={{ backgroundColor: "#182F2B", borderColor: "#182F2B" }}
+            onClick={comprar}
           >
-            Agregar al carrito
+            Comprar
           </button>
         </Card.Body>
       </Card>

@@ -72,6 +72,13 @@ const Carrito = ({ idCliente }) => {
       )
     );
   };
+
+  const handlePedidoSuccess = () => {
+    // Esta función se ejecutará después de realizar el pedido
+    // Puedes realizar cualquier actualización del estado necesario aquí
+    setCarrito([]);
+    console.log("Carrito actualizado después de realizar el pedido");
+  };
   
 
   return (
@@ -107,7 +114,7 @@ const Carrito = ({ idCliente }) => {
                   })
                 }
                 </div>
-                <CardResumen carrito={carrito}/>
+                <CardResumen carrito={carrito} idCliente={idCliente} onPedidoSuccess={handlePedidoSuccess}/>
               </div>
             </div>
             }

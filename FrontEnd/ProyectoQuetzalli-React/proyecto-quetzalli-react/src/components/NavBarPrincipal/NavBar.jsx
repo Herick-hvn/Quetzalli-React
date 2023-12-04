@@ -5,8 +5,14 @@ import logo from "../../img/logoSinFondo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Productos from "../../pages/Dashboard/CatalogoProductos/Productos";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  const cerrarSesion = () =>{
+    sessionStorage.clear();
+    navigate('/')
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg">
@@ -22,7 +28,7 @@ const NavBar = () => {
           >
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link text-white" href="/">
+                <a className="nav-link text-white" href="/productos">
                   Productos
                 </a>
               </li>
@@ -37,7 +43,7 @@ const NavBar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/">
+                <a className="nav-link text-white" href="#" onClick={cerrarSesion}>
                   Cerrar Sesión
                 </a>
               </li>

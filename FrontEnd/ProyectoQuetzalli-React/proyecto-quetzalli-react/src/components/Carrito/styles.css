@@ -24,6 +24,19 @@
     color: rgba(220, 53, 69, 1);
   }
 
+  .custom-button-success {
+    background-color: rgba(40, 167, 69, 1);
+    border-color: rgba(40, 167, 69, 1);
+    color: #fff; /* Color del texto */
+    margin-top: 5px;
+  }
+  
+  .custom-button-success:hover {
+    background-color: #fff; /* Cambia el color al pasar el ratón por encima */
+    border-color: rgba(40, 167, 69, 1);
+    color: rgba(40, 167, 69, 1);
+  }
+
 /* Estilos para el contenedor de los botones */
 .cantidad-container {
     display: flex;

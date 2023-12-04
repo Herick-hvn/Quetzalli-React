@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const NoProducts = () => {
     const navigate = useNavigate();
 
-    const onChangePage = () => navigate('/')
+    const onChangePage = () => navigate('/productos')
   return (
     <>
       <div className="container-fluid mt-3">

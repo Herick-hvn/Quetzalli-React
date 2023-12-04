@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
 import logo from "../../../img/logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SweetalertAgregar from "../../../components/Sweetalerts/SweetalertAgregar";
 
 function Productos() {
@@ -9,13 +9,6 @@ function Productos() {
   const [productosMostrados, setProductosMostrados] = useState(8);
   const navigate = useNavigate();
   const [palabraProducto, setPalabraProducto] = useState("");
-
-  const [carrito, setCarrito] = useState([]);
-
-  useEffect(() => {
-    const storedCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    setCarrito(storedCarrito);
-  }, []);
 
   const filterProduct = (event) => {
     setPalabraProducto(event.target.value);
@@ -35,6 +28,10 @@ function Productos() {
         console.error("Error al obtener los productos:", error.message);
       }
     };
+
+    const idCliente = sessionStorage.getItem('idCliente');
+
+  console.log(idCliente);
 
     getProductos();
   }, []);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import NavBarPagina from "../components/NavBarPagina";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "../styles/Custom/custom.css";

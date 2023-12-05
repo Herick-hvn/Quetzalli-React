@@ -73,48 +73,32 @@
             </div>
             <div class="col-md-6">
               <div class="card">
-                <!-- Contenido del segundo card -->
-                <div class="card-body">
+                
+              <!-- Contenido del segundo card -->
+          <div class="card-body">
+            <div class="input-group">
+              <div class="input-box">
+                <label for="nombre"><i class="fas fa-utensils"></i> Nombre de la Receta</label>
+                <input id="nombre" type="text" name="nombre" placeholder="Ingrese el nombre de la receta" required disabled>
+              </div>
 
+              <div class="input-box">
+                <label for="descripcion"><i class="fas fa-info-circle"></i> Descripción</label>
+                <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción de la receta" required disabled></textarea>
+              </div>
 
+              <div class="input-box">
+                <label for="costoProduccion"><i class="fas fa-dollar-sign"></i> Costo de Producción</label>
+                <input id="costoProduccion" type="number" name="costoProduccion" placeholder="Ingrese el costo de producción" [value]="costoProduccionTotal" disabled>
+              </div>
 
-                  <div class="input-group">
-                    <div class="input-box">
-                      <label for="nombre"><i class="fas fa-utensils"></i> Nombre de la Receta</label>
-                      <input id="nombre" type="text" name="nombre" placeholder="Ingrese el nombre de la receta"
-                        required>
-                    </div>
-
-                    <div class="input-box">
-                      <label for="descripcion"><i class="fas fa-info-circle"></i> Descripción</label>
-                      <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción de la receta"
-                        required></textarea>
-                    </div>
-
-
-
-
-                    <div class="input-box">
-                      <label for="costoProduccion"><i class="fas fa-dollar-sign"></i> Costo de Producción</label>
-                      <input id="costoProduccion" type="number" name="costoProduccion"
-                        placeholder="Ingrese el costo de producción" [value]="costoProduccionTotal" disabled>
-                    </div>
-
-                    <div class="input-box">
-                      <label for="precioVenta"><i class="fas fa-dollar-sign"></i> Precio de Venta</label>
-                      <input id="precioVenta" type="number" name="precioVenta" placeholder="Ingrese el precio de venta"
-                        required inputmode="numeric" min="0" />
-
-
-
-                    </div>
-                  </div>
-
-
-
-
-                </div>
-                <!-- Contenido del segundo card -->
+              <div class="input-box">
+                <label for="precioVenta"><i class="fas fa-dollar-sign"></i> Precio de Venta</label>
+                <input id="precioVenta" type="number" name="precioVenta" placeholder="Ingrese el precio de venta" required inputmode="numeric" min="0" disabled>
+              </div>
+            </div>
+          </div>
+    <!-- Contenido del segundo card -->
 
               </div>
             </div>

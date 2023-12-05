@@ -7,6 +7,7 @@ import { Pedido } from 'src/app/Interfaces/pedido';
 import { UsuarioConPedido, UsuarioConPersonaYPedido } from 'src/app/Interfaces/usuarios';
 import { ServiciosPedidoService } from 'src/app/services/Pedido/servicios-pedido.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
+import { EditarpedidoComponent } from './components/editarpedido/editarpedido.component';
 
 @Component({
   selector: 'app-pedidos',
@@ -37,6 +38,7 @@ export class PedidosComponent implements OnInit {
   
   constructor(
     private usuariosService: UsuariosService,
+    private dialog: MatDialog
   ) {
     this.dataSource = new MatTableDataSource<UsuarioConPersonaYPedido>([]);
   }
@@ -59,6 +61,19 @@ export class PedidosComponent implements OnInit {
       },
     });
   }
+
+  abrirDialogoEditarPedido(id: number): void {
+    const dialogRef = this.dialog.open(EditarpedidoComponent, {
+      width: '1200px',
+      data: { pedidoId: id }, // Pasar solo el ID de la receta
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('Diálogo de edición cerrado');
+      this.obtenerUsuariosConPedidos(); // Puedes mantener esta llamada si necesitas actualizar la lista después de editar
+    });
+  }
+  
   
 
 

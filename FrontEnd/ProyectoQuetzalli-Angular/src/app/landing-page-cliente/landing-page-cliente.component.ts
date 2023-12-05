@@ -125,11 +125,6 @@ export class LandingPageClienteComponent {
     this.stringPedido2.push(stringPedido)
 
 
-    this.Servicepedido.postPedido(`https://localhost:7239/api/Pedidos`, jsonPedido).subscribe(
-      (respuesta) => {
-        this.AgregarPedidoProducto(this.stringPedido2, this.produHeader);
-      },
-    );
   }
 
   AgregarPedidoProducto(pedido: any[], producto: any[]) {

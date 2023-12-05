@@ -42,6 +42,7 @@ import { ProductosRecetaComponent } from './productos-receta/productos-receta.co
 import { EditarproductorecetaComponent } from './productos-receta/components/editarproductoreceta/editarproductoreceta.component';
 import { AgregarProductoRecetaComponent } from './productos-receta/components/agregarproductoreceta/agregarproductoreceta.component';
 import { NgChartsModule  as Ng2Charts } from 'ng2-charts';
+import { EditarpedidoComponent } from './pedidos/components/editarpedido/editarpedido.component';
 
 
 
@@ -72,7 +73,8 @@ import { NgChartsModule  as Ng2Charts } from 'ng2-charts';
     AgregarRecetasComponent,
     ProductosRecetaComponent,
     EditarproductorecetaComponent,
-    AgregarProductoRecetaComponent
+    AgregarProductoRecetaComponent,
+    EditarpedidoComponent
 
   ],
   imports: [

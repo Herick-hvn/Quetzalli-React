@@ -19,6 +19,8 @@ interface RecetaElement {
   templateUrl: './agregar-receta.component.html',
   styleUrls: ['./agregar-receta.component.scss']
 })
+
+
 export class AgregarRecetaComponent {
   displayedColumns: string[] = ['nombreInsumo', 'precio', 'unidad', 'cantidad'];
   dataToDisplay: RecetaElement[] = [];

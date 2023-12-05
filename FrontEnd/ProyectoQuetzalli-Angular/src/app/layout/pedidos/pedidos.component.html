@@ -117,7 +117,7 @@
                 <mat-icon>restore</mat-icon>
               </button>
               <!-- Mostrar botones de editar y eliminar solo para usuarios activos -->
-              <button mat-mini-fab color="primary" *ngIf="row.active === 1" style="background-color: #D4BA72;">
+              <button mat-mini-fab color="primary" *ngIf="row.active === 1" style="background-color: #D4BA72;" (click)="abrirDialogoEditarPedido(row.pedido.idPedidos)">
                 <mat-icon>edit</mat-icon>
               </button>
               <button mat-mini-fab color="warn" *ngIf="row.active === 1" class="mx-2" >

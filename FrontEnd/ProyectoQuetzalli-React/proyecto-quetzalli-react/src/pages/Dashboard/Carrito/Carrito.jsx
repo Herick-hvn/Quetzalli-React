@@ -6,9 +6,9 @@ import NoProducts from "../../../components/Carrito/NoProducts";
 import CardResumen from "../../../components/Carrito/CardResumen";
 import Swal from "sweetalert2";
 
-const Carrito = ({ idCliente }) => {
+const Carrito = () => {
   const [carrito, setCarrito] = useState([]);
-
+  const idCliente = sessionStorage.getItem('idCliente');
   const getCarrito = async () => {
     const url = `https://localhost:7239/api/Carrito/${idCliente}`;
     try {

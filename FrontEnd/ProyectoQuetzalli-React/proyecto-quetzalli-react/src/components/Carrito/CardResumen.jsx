@@ -1,7 +1,11 @@
 import "./styles.css";
 import Swal from "sweetalert2";
+import MetodoPago from "./MetodoPago";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CardResumen = ({ carrito, idCliente, onPedidoSuccess }) => {
+  const navigate = useNavigate();
   const totalCantidad = carrito.reduce(
     (total, producto) => total + producto.cantidad,
     0
@@ -114,6 +118,7 @@ const CardResumen = ({ carrito, idCliente, onPedidoSuccess }) => {
       .then((result) => {
         if (result.isConfirmed) {
           postPedido();
+          
           swalWithBootstrapButtons.fire({
             title: "Compra Completada!",
             text: "Puedes revisarla en el apartado de pedidos",

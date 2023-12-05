@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import DetallesProduto from "./pages/Dashboard/DetalleProducto/DetallesProduto";
 import Carrito from "./pages/Dashboard/Carrito/Carrito";
+import MetodoPago from "./components/Carrito/MetodoPago";
 
 
 const App = () => {
@@ -20,7 +21,7 @@ return (
           {/* <Route path="/" element={<Dashboard />} /> */}
           <Route path="/login" element={<LoginForm />} />
           <Route path="/detalleproductos/:id" element={<DetallesProduto />} />
-          <Route path="/carrito" element={<Carrito idCliente={1}/>} />
+          <Route path="/carrito" element={<Carrito/>} />
         </Routes>
       </div>
     </Router>

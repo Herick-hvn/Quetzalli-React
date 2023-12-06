@@ -100,6 +100,10 @@ const LoginForm = () => {
                 <button type="submit" className="btn btn-login">
                   Enviar
                 </button>
+                <p style={{ textAlign: "center", marginTop: "10px" }}>
+                  ¿No tienes una cuenta?{" "}
+                  <a href="/CrearCuenta">Crear una Cuenta</a>
+                </p>
               </form>
             </div>
           </div>

@@ -88,7 +88,7 @@ const Carrito = () => {
       {carrito.length === 0 ? (
               <NoProducts />
             ):
-            <div className="container-fluid mt-3">
+            <div className="container-fluid mt-3" style={{fontFamily: "serif"}}>
               <div className="row">
               <div className="col-9 d-flex flex-wrap">
                 {

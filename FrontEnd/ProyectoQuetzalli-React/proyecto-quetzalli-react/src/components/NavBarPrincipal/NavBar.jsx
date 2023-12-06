@@ -15,7 +15,7 @@ const NavBar = () => {
   }
   return (
     <>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg" style={{fontFamily: "serif"}}>
         <div className="container d-flex justify-content-between align-items-center">
           {/* Logo */}
           <div className="col-3">

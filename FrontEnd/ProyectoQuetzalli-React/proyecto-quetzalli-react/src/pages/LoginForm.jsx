@@ -20,7 +20,13 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://localhost:7239/api/Users"
+      const response = await fetch("https://localhost:7239/api/Users/Login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData)
+      }
       );
 
       if (response.ok) {
@@ -28,17 +34,19 @@ const LoginForm = () => {
         console.log("Respuesta del API:", data);
         toast.success(data.message, {
           position: toast.POSITION.TOP_RIGHT,
-        }); 
+        });
 
-        
+
         // Esperar 2 segundos
         setTimeout(() => {
           navigate(`/productos`);
         }, 2000);
 
-        const idCliente = 1;
+        const idCliente = data.userId;
+        console.log(idCliente);
 
-        sessionStorage.setItem("idCliente",idCliente);
+        sessionStorage.setItem("idCliente", idCliente);
+        
       } else {
         console.error("Error al iniciar sesión");
         const errorData = await response.json();
@@ -67,9 +75,9 @@ const LoginForm = () => {
           </div>
           <div className="col-lg-6 d-flex ">
             <div className="card-container">
-              <h2 style={{ textAlign: "center" }}>Formulario</h2>
+              <h2 style={{ textAlign: "center",fontFamily: "serif" }}>Inicia sesión</h2>
               <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+                <div className="mb-3" style={{fontFamily: "serif" }}>
                   <label htmlFor="email" className="form-label">
                     Email:
                   </label>
@@ -83,7 +91,7 @@ const LoginForm = () => {
                     onChange={handleInputChange}
                   />
                 </div>
-                <div className="mb-3">
+                <div className="mb-3" style={{fontFamily: "serif" }}>
                   <label htmlFor="password" className="form-label">
                     Contraseña:
                   </label>
@@ -97,10 +105,10 @@ const LoginForm = () => {
                     onChange={handleInputChange}
                   />
                 </div>
-                <button type="submit" className="btn btn-login">
+                <button type="submit" className="btn btn-login" style={{fontFamily: "serif" }}>
                   Enviar
                 </button>
-                <p style={{ textAlign: "center", marginTop: "10px" }}>
+                <p style={{ textAlign: "center", marginTop: "10px",fontFamily: "serif" }}>
                   ¿No tienes una cuenta?{" "}
                   <a href="/CrearCuenta">Crear una Cuenta</a>
                 </p>

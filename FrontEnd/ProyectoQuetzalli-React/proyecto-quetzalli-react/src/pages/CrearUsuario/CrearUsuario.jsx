@@ -103,7 +103,7 @@ const CrearUsuario = () => {
   };
   return (
     <>
-      <div className="main-container">
+      <div className="main-container" style={{fontFamily: "serif"}}>
         <div className="content-container">
           <div className="row">
             <div className="col-lg-6 d-flex align-items-center justify-content-center">

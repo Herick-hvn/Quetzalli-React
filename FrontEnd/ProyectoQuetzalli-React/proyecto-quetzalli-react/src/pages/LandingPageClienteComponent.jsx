@@ -105,7 +105,7 @@ const LandingPageClienteComponent = () => {
             <Col className="text-center">
               <Button
                 onClick={cargarMasProductos}
-                style={{ backgroundColor: "#D2B76D", borderColor: "#D2B76D" }}
+                style={{ backgroundColor: "#D2B76D", borderColor: "#D2B76D", fontFamily: "serif"}}
               >
                 Cargar más
               </Button>
@@ -158,6 +158,7 @@ const LandingPageClienteComponent = () => {
                       justifyContent: "center",
                       alignItems: "center",
                       flexWrap: "wrap",
+                      fontFamily: "serif"
                     }}
                   >
                     Diseños Modernos & Variedad
@@ -178,6 +179,7 @@ const LandingPageClienteComponent = () => {
                       justifyContent: "center",
                       alignItems: "center",
                       flexWrap: "wrap",
+                      fontFamily: "serif"
                     }}
                   >
                     Compra Protegida & Compra Nacional
@@ -198,6 +200,7 @@ const LandingPageClienteComponent = () => {
                       justifyContent: "center",
                       alignItems: "center",
                       flexWrap: "wrap",
+                      fontFamily: "serif"
                     }}
                   >
                     Envíos gratis arriba de $1,500
@@ -218,6 +221,7 @@ const LandingPageClienteComponent = () => {
                       justifyContent: "center",
                       alignItems: "center",
                       flexWrap: "wrap",
+                      fontFamily: "serif"
                     }}
                   >
                     Showroom en León
@@ -252,7 +256,7 @@ const LandingPageClienteComponent = () => {
                     >
                       Misión
                     </h2>
-                    <p>
+                    <p style={{fontFamily: "serif"}}>
                       Quetzalli es una marca de joyería artesanal que busca
                       embellecer la vida de las personas a través de piezas
                       únicas y significativas. Creemos que las joyas pueden
@@ -281,7 +285,7 @@ const LandingPageClienteComponent = () => {
                     >
                       Visión
                     </h2>
-                    <p>
+                    <p  style={{fontFamily: "serif"}}>
                       Quetzalli aspira a ser reconocida como líder en la
                       creación y comercialización de joyería artesanal. Queremos
                       expandir nuestra presencia globalmente e inspirar a las
@@ -308,7 +312,7 @@ const LandingPageClienteComponent = () => {
                     >
                       Valores
                     </h2>
-                    <ul>
+                    <ul  style={{fontFamily: "serif"}}>
                       <li>
                         {" "}
                         Creatividad: Abrazamos la innovación y la creatividad en

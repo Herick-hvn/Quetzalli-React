@@ -35,7 +35,7 @@ const DetallesProduto = () => {
       <NavBar />
       <Container
         className="d-flex align-items-center justify-content-center"
-        style={{ height: "100vh" }}
+        style={{ height: "100vh",fontFamily: "serif" }}
       >
         <div
           className="card2"

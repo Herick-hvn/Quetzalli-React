@@ -58,7 +58,7 @@ function Productos() {
       {/* Barra de búsqueda*/}
       <div
         className="d-flex justify-content-center mt-2"
-        style={{ marginRight: "10px" }}
+        style={{ marginRight: "10px", fontFamily: "serif" }}
       >
         {/* Barra de búsqueda */}
         <input
@@ -68,10 +68,10 @@ function Productos() {
           aria-label="Buscar"
           aria-describedby="basic-addon2"
           onChange={filterProduct}
-          style={{ border: "1px solid" }}
+          style={{ border: "1px solid",fontFamily: "serif" }}
         />
       </div>
-      <Container>
+      <Container style={{fontFamily: "serif"}}>
         <Row xs={1} sm={2} md={2} lg={3} xl={4} className="g-3">
           {productosFiltrados
             .slice(0, productosMostrados)
@@ -123,7 +123,7 @@ function Productos() {
           <Col className="text-center">
             <Button
               onClick={cargarMasProductos}
-              style={{ backgroundColor: "#D2B76D", borderColor: "#D2B76D" }}
+              style={{ backgroundColor: "#D2B76D", borderColor: "#D2B76D", fontFamily: "serif" }}
             >
               Cargar más
             </Button>

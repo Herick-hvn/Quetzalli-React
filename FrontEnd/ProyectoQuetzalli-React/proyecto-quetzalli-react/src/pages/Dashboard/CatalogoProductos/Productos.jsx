@@ -29,10 +29,6 @@ function Productos() {
       }
     };
 
-    const idCliente = sessionStorage.getItem('idCliente');
-
-  console.log(idCliente);
-
     getProductos();
   }, []);
 
@@ -53,6 +49,10 @@ function Productos() {
     navigate(`/detalleproductos/${id}`);
   };
 
+  const idCliente = sessionStorage.getItem("idCliente");
+
+  console.log(idCliente);
+
   return (
     <>
       {/* Barra de búsqueda*/}
@@ -68,10 +68,10 @@ function Productos() {
           aria-label="Buscar"
           aria-describedby="basic-addon2"
           onChange={filterProduct}
-          style={{ border: "1px solid",fontFamily: "serif" }}
+          style={{ border: "1px solid", fontFamily: "serif" }}
         />
       </div>
-      <Container style={{fontFamily: "serif"}}>
+      <Container style={{ fontFamily: "serif" }}>
         <Row xs={1} sm={2} md={2} lg={3} xl={4} className="g-3">
           {productosFiltrados
             .slice(0, productosMostrados)
@@ -84,7 +84,6 @@ function Productos() {
                     border: "1px solid #182F2B",
                     marginTop: "12px",
                   }}
-                  
                 >
                   <div style={{ height: "200px", overflow: "hidden" }}>
                     <Card.Img
@@ -109,8 +108,7 @@ function Productos() {
                     </Card.Subtitle>
                     <SweetalertAgregar
                       producto={producto}
-                      idCliente={1}
-                      
+                      idCliente={idCliente}
                     />
                   </Card.Body>
                 </Card>
@@ -123,7 +121,11 @@ function Productos() {
           <Col className="text-center">
             <Button
               onClick={cargarMasProductos}
-              style={{ backgroundColor: "#D2B76D", borderColor: "#D2B76D", fontFamily: "serif" }}
+              style={{
+                backgroundColor: "#D2B76D",
+                borderColor: "#D2B76D",
+                fontFamily: "serif",
+              }}
             >
               Cargar más
             </Button>

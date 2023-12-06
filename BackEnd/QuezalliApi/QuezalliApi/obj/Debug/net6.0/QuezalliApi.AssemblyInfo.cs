@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuezalliApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f0bbe1c5d22ce1abe2522a5628832a736382781")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuezalliApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuezalliApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

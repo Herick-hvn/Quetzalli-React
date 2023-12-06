@@ -37,7 +37,7 @@ const NavBarPagina = () => {
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to="/"
+              to="/contacto"
               style={{
                 fontFamily: "serif",
                 fontWeight: "bold",

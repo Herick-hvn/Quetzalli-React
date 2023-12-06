@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import DetallesProduto from "./pages/Dashboard/DetalleProducto/DetallesProduto";
 import Carrito from "./pages/Dashboard/Carrito/Carrito";
 import CrearUsuario from "./pages/CrearUsuario/CrearUsuario";
+import Contacto from "./pages/Contacto";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ return (
           <Route path="/detalleproductos/:id" element={<DetallesProduto />} />
           <Route path="/carrito" element={<Carrito/>} />
           <Route path="/CrearCuenta" element={<CrearUsuario />} />
+          <Route path="/contacto" element={<Contacto />} />
         </Routes>
       </div>
     </Router>

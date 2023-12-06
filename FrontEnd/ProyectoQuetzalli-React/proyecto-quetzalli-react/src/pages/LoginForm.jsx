@@ -20,15 +20,17 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://localhost:7239/api/Users");
+      const response = await fetch("https://localhost:7239/api/Users"
+      );
 
       if (response.ok) {
         const data = await response.json();
         console.log("Respuesta del API:", data);
         toast.success(data.message, {
           position: toast.POSITION.TOP_RIGHT,
-        });
+        }); 
 
+        
         // Esperar 2 segundos
         setTimeout(() => {
           navigate(`/productos`);
@@ -36,7 +38,7 @@ const LoginForm = () => {
 
         const idCliente = 1;
 
-        sessionStorage.setItem("idCliente", idCliente);
+        sessionStorage.setItem("idCliente",idCliente);
       } else {
         console.error("Error al iniciar sesión");
         const errorData = await response.json();
@@ -65,7 +67,7 @@ const LoginForm = () => {
           </div>
           <div className="col-lg-6 d-flex ">
             <div className="card-container">
-              <h2 style={{ textAlign: "center" }}>Login</h2>
+              <h2 style={{ textAlign: "center" }}>Formulario</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
@@ -98,10 +100,6 @@ const LoginForm = () => {
                 <button type="submit" className="btn btn-login">
                   Enviar
                 </button>
-                <p style={{ textAlign: "center", marginTop: "10px" }}>
-                  ¿No tienes una cuenta?{" "}
-                  <a href="/CrearCuenta">Crear una Cuenta</a>
-                </p>
               </form>
             </div>
           </div>

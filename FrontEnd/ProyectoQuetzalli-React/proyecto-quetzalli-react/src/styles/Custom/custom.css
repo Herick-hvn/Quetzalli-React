@@ -63,7 +63,9 @@
 .card:hover {
   transform: scale(1.05);
 }
-
+.card.hovered {
+  transform: none; /* Anula el efecto de escala cuando hovered es true */
+}
 .card-image {
   width: 100%;
   height: 200px; 

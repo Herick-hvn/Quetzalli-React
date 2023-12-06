@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import logo from "../../../img/logo.png";
+import { useNavigate, useParams } from "react-router-dom";
 import SweetalertAgregar from "../../../components/Sweetalerts/SweetalertAgregar";
 
 function Productos() {
@@ -28,9 +29,9 @@ function Productos() {
       }
     };
 
-    const idCliente = sessionStorage.getItem("idCliente");
+    const idCliente = sessionStorage.getItem('idCliente');
 
-    console.log(idCliente);
+  console.log(idCliente);
 
     getProductos();
   }, []);
@@ -83,6 +84,7 @@ function Productos() {
                     border: "1px solid #182F2B",
                     marginTop: "12px",
                   }}
+                  
                 >
                   <div style={{ height: "200px", overflow: "hidden" }}>
                     <Card.Img
@@ -105,7 +107,11 @@ function Productos() {
                     <Card.Subtitle style={{ color: "green" }}>
                       ${producto.precioVenta}.00
                     </Card.Subtitle>
-                    <SweetalertAgregar producto={producto} idCliente={1} />
+                    <SweetalertAgregar
+                      producto={producto}
+                      idCliente={1}
+                      
+                    />
                   </Card.Body>
                 </Card>
               </Col>

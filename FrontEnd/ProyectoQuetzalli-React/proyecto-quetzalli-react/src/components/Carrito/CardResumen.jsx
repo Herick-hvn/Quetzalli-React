@@ -1,11 +1,11 @@
 import "./styles.css";
 import Swal from "sweetalert2";
-import MetodoPago from "./MetodoPago";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 
 const CardResumen = ({ carrito, idCliente, onPedidoSuccess }) => {
-  const navigate = useNavigate();
+  const [preferenceId, setPreferenceId] = useState(null);
+  initMercadoPago("TEST-205bcbad-5b8f-4178-9e97-916af0370970");
   const totalCantidad = carrito.reduce(
     (total, producto) => total + producto.cantidad,
     0
@@ -57,12 +57,13 @@ const CardResumen = ({ carrito, idCliente, onPedidoSuccess }) => {
       const { idPedidos } = res;
       console.log(idPedidos);
       // Llama a la función de éxito después de realizar el pedido
-      for(let i = 0; i < datosCarrito.length;i++){
-        const {cantidad, idProducto} = datosCarrito[i];
-        console.log(`En la posición ${i} la cantidad es: ${cantidad} y el id es: ${idProducto}`);
-        await postPedidoProductos(idProducto,idPedidos,cantidad);
+      for (let i = 0; i < datosCarrito.length; i++) {
+        const { cantidad, idProducto } = datosCarrito[i];
+        console.log(
+          `En la posición ${i} la cantidad es: ${cantidad} y el id es: ${idProducto}`
+        );
+        await postPedidoProductos(idProducto, idPedidos, cantidad);
       }
-      onPedidoSuccess();
     } catch (error) {
       console.log(error);
     }
@@ -117,13 +118,19 @@ const CardResumen = ({ carrito, idCliente, onPedidoSuccess }) => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          postPedido();
-          
-          swalWithBootstrapButtons.fire({
-            title: "Compra Completada!",
-            text: "Puedes revisarla en el apartado de pedidos",
-            icon: "success",
-          });
+          swalWithBootstrapButtons
+            .fire({
+              title: "Compra Completada!",
+              text: "Puedes revisarla en el apartado de pedidos",
+              icon: "success",
+              confirmButtonText: "Proceder al pago",
+              reverseButtons: true,
+            })
+            .then((result) => {
+              if (result.isConfirmed) {
+                handleBuy();
+              }
+            });
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
@@ -137,9 +144,56 @@ const CardResumen = ({ carrito, idCliente, onPedidoSuccess }) => {
       });
   };
 
+  const createPreference = async () => {
+    try {
+      const url = "http://localhost:8080/create_preference";
+
+      // Construir la preferencia para todos los productos
+      const items = datosCarrito.map(
+        ({ cantidad, nombreProducto, precio }) => ({
+          title: nombreProducto,
+          unit_price: Number(precio),
+          quantity: Number(cantidad),
+        })
+      );
+
+      console.log(items);
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(items),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error al crear la preferencia para ${nombreProducto}`);
+      }
+
+      const responseData = await response.json();
+
+      return responseData.id;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleBuy = async () => {
+    const id = await createPreference();
+    console.log(id);
+    if (id) {
+      setPreferenceId(id);
+      postPedido();
+    }
+  };
+
+  const [hovered, setHovered] = useState(false);
+
+
   return (
-    <div className="col-3 mx-auto">
-      <div className="card mb-3" style={{ maxWidth: "18rem" }}>
+    <div className="col-3">
+      <div className="card">
         <div className="card-header">Resumen de carrito</div>
         <div className="card-body">
           <article className="item">
@@ -153,13 +207,13 @@ const CardResumen = ({ carrito, idCliente, onPedidoSuccess }) => {
             <p className="price text-success">${totalCarrito}</p>
           </article>
           <div className="text-center">
-            <button
+          {preferenceId ? <Wallet initialization={{ preferenceId }} /> : <button
               type="button"
               className="btn custom-button"
               onClick={confirmPedido}
             >
               Continuar Compra
-            </button>
+            </button>}
           </div>
         </div>
       </div>

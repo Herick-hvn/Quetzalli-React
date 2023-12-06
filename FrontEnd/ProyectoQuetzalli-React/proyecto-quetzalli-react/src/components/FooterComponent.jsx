@@ -213,7 +213,7 @@ const FooterComponent = () => {
             <a className="text-white mb-2" href="login">
               <i className="fa fa-angle-right mr-2"></i>Login
             </a>
-            <a className="text-white" href="contact.html">
+            <a className="text-white" href="Contacto">
               <i className="fa fa-angle-right mr-2"></i>Contacto
             </a>
           </div>

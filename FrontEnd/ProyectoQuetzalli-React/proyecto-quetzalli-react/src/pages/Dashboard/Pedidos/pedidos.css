@@ -1,0 +1,26 @@
+/* Pedidos.css */
+
+/* Estilos para las tarjetas de pedidos */
+.card {
+    height: 100%;
+    max-width: 100%;
+  }
+  
+  /* Estilo para el cuerpo de la tarjeta */
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilo para el botón */
+  .btn {
+    margin-top: auto;
+  }
+  
+  /* Estilos específicos para dispositivos móviles */
+  @media (max-width: 576px) {
+    .card {
+      width: 30%;
+    }
+  }
+  

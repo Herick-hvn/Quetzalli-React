@@ -80,6 +80,26 @@ const CrearUsuario = () => {
         body: JSON.stringify(postData),
       });
 
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        toast.success("La cuenta se creó exitosamente");
+ 
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
+      } else {
+        if (response.status === 500) {
+          toast.error("Este correo ya ha sido registrado", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        } else {
+          throw new Error(
+            `Error en la solicitud: ${response.status} - ${response.statusText}`
+          );
+        }
+      }
+
       // Verifica si la solicitud fue exitosa (código de estado 2xx)
       if (response.ok) {
         const responseData = await response.json();

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\React\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj": {}
+    "C:\\Users\\losim\\Desktop\\dec12\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj": {}
   },
   "projects": {
-    "E:\\React\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj": {
+    "C:\\Users\\losim\\Desktop\\dec12\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\React\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj",
+        "projectUniqueName": "C:\\Users\\losim\\Desktop\\dec12\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj",
         "projectName": "QuezalliApi",
-        "projectPath": "E:\\React\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj",
-        "packagesPath": "C:\\Users\\ureyes\\.nuget\\packages\\",
-        "outputPath": "E:\\React\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\obj\\",
+        "projectPath": "C:\\Users\\losim\\Desktop\\dec12\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\QuezalliApi.csproj",
+        "packagesPath": "C:\\Users\\losim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\losim\\Desktop\\dec12\\Quetzalli-React\\BackEnd\\QuezalliApi\\QuezalliApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ureyes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\losim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

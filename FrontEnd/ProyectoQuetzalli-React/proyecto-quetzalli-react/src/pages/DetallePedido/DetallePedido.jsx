@@ -5,6 +5,8 @@ import NavBar from "../../components/NavBarPrincipal/NavBar";
 import Swal from "sweetalert2"; // Importa SweetAlert2
 import "./detalle.css"; // Importa el archivo de estilos CSS
 
+
+
 const obtenerEstadoPedido = (estatus) => {
   switch (estatus) {
     case 2:
@@ -74,8 +76,7 @@ const DetallesPedido = () => {
         confirmButtonText: "Aceptar"
       });
   
-      // Actualizar la información del pedido después de la cancelación
-      // ...
+      
   
     } catch (error) {
       console.error("Error al cancelar el pedido:", error.message);
@@ -138,6 +139,7 @@ const DetallesPedido = () => {
                     }).then((result) => {
                       if (result.isConfirmed) {
                         handleCancelarPedido();
+                        window.location.href = '/pedidos';
                       }
                     });
                   }}>

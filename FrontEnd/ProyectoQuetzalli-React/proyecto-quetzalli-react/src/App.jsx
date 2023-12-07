@@ -1,3 +1,4 @@
+// App.js
 import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,6 +12,7 @@ import CrearUsuario from "./pages/CrearUsuario/CrearUsuario";
 import ContactPage from "./pages/Contacto";
 import Pedidos from "./pages/Dashboard/Pedidos/Pedidos";
 import DetallesPedido from "./pages/DetallePedido/DetallePedido";
+import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
   return (
@@ -18,14 +20,19 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<LandingPageClienteComponent />} />
-          <Route path="/productos" element={<Dashboard />} />
-          {/* <Route path="/" element={<Dashboard />} /> */}
-          <Route path="/pedidos" element={<Pedidos />} /> {/* Ruta para Pedidos */}
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/detallepedido/:id" element={<DetallesPedido />} />
-          <Route path="/detalleproductos/:id" element={<DetallesProduto />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/CrearCuenta" element={<CrearUsuario />} />
+          
+          {/* Rutas protegidas */}
+
+          <Route path="/productos" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/pedidos" element={<PrivateRoute><Pedidos /></PrivateRoute>} />
+          <Route path="/detallepedido/:id" element={<PrivateRoute><DetallesPedido /></PrivateRoute>} />
+          <Route path="/detalleproductos/:id" element={<PrivateRoute><DetallesProduto /></PrivateRoute>} />
+          <Route path="/carrito" element={<PrivateRoute><Carrito /></PrivateRoute>} />
+          
+          {/* Fin de rutas protegidas */}
+          
+          <Route path="/CrearCuenta" element={<CrearUsuario />} /> 
           <Route path="/contacto" element={<ContactPage />} />
         </Routes>
       </div>
@@ -34,5 +41,3 @@ const App = () => {
 };
 
 export default App;
-
-ReactDOM.render(<App />, document.getElementById("root"));
